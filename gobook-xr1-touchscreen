@@ -1,0 +1,33 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          gobook-xr1-touchscreen
+# Required-Start:    $syslog $remote_fs
+# Required-Stop:     $syslog $remote_fs
+# Should-Start:      
+# Should-Stop:       
+# X-Start-Before:    
+# X-Stop-After:      
+# Default-Start:     2 3 4 5
+# Default-Stop:      1
+# Short-Description: GoBook XR-1 Touchscreen
+# Description:       Runs inputattach on the touchscreen's serial device
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/bin/inputattach
+SCRIPTNAME=gobook-xr1-touchscreen
+
+# Exit if the package is not installed
+test -x $DAEMON || exit 0
+
+case "$1" in
+  start)
+        "$DAEMON" --daemon --always -t213 /dev/ttyS3
+	;;
+  *)
+	echo "Usage: $SCRIPTNAME {start}" >&2
+	exit 3
+	;;
+esac
+
+exit 0
