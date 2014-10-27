@@ -18,6 +18,9 @@ touch ~/.Xresources
 sed -i -e '/Xcursor.size:/d' ~/.Xresources
 echo Xcursor.size:48 >> ~/.Xresources
 
+# Legacy scrollbars
+gsettings set com.canonical.desktop.interface scrollbar-mode normal
+
 # High-contrast Unity greeter
 # This looks absolutely awful, don't do this
 #as lightdm gsettings set com.canonical.unity-greeter high-contrast true
