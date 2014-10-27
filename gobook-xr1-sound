@@ -1,0 +1,34 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          gobook-xr1-sound
+# Required-Start:    $syslog $remote_fs
+# Required-Stop:     $syslog $remote_fs
+# Should-Start:      
+# Should-Stop:       
+# X-Start-Before:    
+# X-Stop-After:      
+# Default-Start:     2 3 4 5
+# Default-Stop:      1
+# Short-Description: GoBook XR-1 Sound
+# Description:       Does a little dance with sound modules
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+SCRIPTNAME=gobook-xr1-touchscreen
+
+case "$1" in
+  start)
+        modprobe snd_hda_codec_realtek
+        rmmod snd_hda_intel
+        modprobe snd_hda_intel
+        rmmod snd_hda_intel
+        rmmod snd_hda_codec_realtek
+        modprobe snd_hda_intel
+	;;
+  *)
+	echo "Usage: $SCRIPTNAME {start}" >&2
+	exit 3
+	;;
+esac
+
+exit 0
