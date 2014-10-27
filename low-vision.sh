@@ -15,7 +15,7 @@ gsettings set org.gnome.desktop.wm.preferences theme HighContrast
 gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 
 # Large cursor
-gsettings set com.canonical.unity.interface cursor-scale-factor 2
+gsettings set com.canonical.Unity.Interface cursor-scale-factor 2
 
 # High-contrast Unity greeter
 # This looks absolutely awful, don't do this
