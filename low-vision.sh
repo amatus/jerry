@@ -9,6 +9,7 @@ as() {
 # High-contrast GTK theme and icons
 gsettings set org.gnome.desktop.interface gtk-theme HighContrast
 gsettings set org.gnome.desktop.interface icon-theme HighContrast
+gsettings set org.gnome.desktop.wm.preferences theme HighContrast
 
 # High-contrast Unity greeter
 # This looks absolutely awful, don't do this
