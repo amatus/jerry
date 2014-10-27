@@ -21,6 +21,10 @@ echo Xcursor.size:48 >> ~/.Xresources
 # Legacy scrollbars
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
+# Enhanced desktop zoom
+gsettings set org.compiz.profiles.unity.plugins.ezoom zoom-in-button "<Shift><Super>Button4"
+gsettings set org.compiz.profiles.unity.plugins.ezoom zoom-out-button "<Shift><Super>Button5"
+
 # High-contrast Unity greeter
 # This looks absolutely awful, don't do this
 #as lightdm gsettings set com.canonical.unity-greeter high-contrast true
