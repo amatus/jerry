@@ -17,3 +17,26 @@ gsettings set org.gnome.desktop.wm.preferences theme HighContrast
 #as lightdm gsettings set com.canonical.unity-greeter theme-name HighContrast
 #as lightdm gsettings set com.canonical.unity-greeter icon-theme-name HighContrast
 
+# Low vision terminal profile
+gconftool --load gnome-terminal-low-vision.xml
+PROFILE_LIST=/apps/gnome-terminal/global/profile_list
+num_profiles=$(gconftool --get-list-size $PROFILE_LIST)
+found=false
+profile_list=""
+for i in $(seq 0 $num_profiles | head -n $num_profiles); do
+  profile=$(gconftool --get-list-element $PROFILE_LIST $i)
+  if test LowVision = "$profile"; then
+    found=true
+    break
+  fi
+  if test -z "$profile_list"; then
+    profile_list="[$profile"
+  else
+    profile_list="$profile_list,$profile"
+  fi
+done
+if ! $found; then
+  gconftool --set --type=list --list-type=string $PROFILE_LIST \
+            "$profile_list,LowVision]"
+fi
+gconftool --set --type=string /apps/gnome-terminal/global/default_profile LowVision
