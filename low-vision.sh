@@ -22,8 +22,8 @@ echo Xcursor.size:48 >> ~/.Xresources
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
 # Enhanced desktop zoom
-gsettings set org.compiz.profiles.unity.plugins.ezoom zoom-in-button "<Shift><Super>Button4"
-gsettings set org.compiz.profiles.unity.plugins.ezoom zoom-out-button "<Shift><Super>Button5"
+gsettings set org.compiz.ezoom:/org/compiz/profiles/unity/plugins/ezoom/ zoom-in-button "<Shift><Super>Button4"
+gsettings set org.compiz.ezoom:/org/compiz/profiles/unity/plugins/ezoom/ zoom-out-button "<Shift><Super>Button5"
 
 # High-contrast Unity greeter
 # This looks absolutely awful, don't do this
@@ -54,3 +54,5 @@ if ! $found; then
             "$profile_list,LowVision]"
 fi
 gconftool --set --type=string /apps/gnome-terminal/global/default_profile LowVision
+
+echo "You must log out and back in for all changes to take effect."
