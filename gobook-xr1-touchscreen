@@ -22,7 +22,7 @@ test -x $DAEMON || exit 0
 
 case "$1" in
   start)
-        "$DAEMON" --daemon --always -t213 /dev/ttyS3
+        (while "$DAEMON" --always -t213 /dev/ttyS3; do sleep 1; done)&
 	;;
   *)
 	echo "Usage: $SCRIPTNAME {start}" >&2
