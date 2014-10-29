@@ -15,7 +15,7 @@
     <entry>
       <key>background_color</key>
       <value>
-        <string>#FFFFE0DF7F7F</string>
+        <string>#000000000000</string>
       </value>
     </entry>
     <entry>
@@ -111,7 +111,7 @@
     <entry>
       <key>foreground_color</key>
       <value>
-        <string>#000000000000</string>
+        <string>#8A89E2E13433</string>
       </value>
     </entry>
     <entry>
