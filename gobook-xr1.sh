@@ -16,5 +16,3 @@ fi
 
 # Fix sound
 sudo install -m 644 blacklist-gobook-xr1-sound.conf /etc/modprobe.d/
-sudo install -m 755 gobook-xr1-sound /etc/init.d/
-sudo update-rc.d gobook-xr1-sound defaults
