@@ -1,0 +1,60 @@
+
+sudo su -
+cd /usr/share/icons
+wget http://g-cipher.net/bigcursor.tar.gz
+tar xzvfp bigcursor.tar.gz
+
+(note: the following three commands are all one liners)
+
+update-alternatives --install /usr/share/icons/default/index.theme x-cursor-theme /usr/share/icons/jerry_bigcursor/cursor.theme 20
+
+update-alternatives --set x-cursor-theme /usr/share/icons/jerry_bigcursor/cursor.theme
+
+dconf write /org/gnome/desktop/interface/cursor-theme "'jerry_bigcursor'"
+
+
+(then log out and log back in).
+
+If you want to revert to the old cursor:
+
+update-alternatives --set x-cursor-theme /usr/share/icons/DMZ-White/cursor.theme
+dconf write /org/gnome/desktop/interface/cursor-theme "'DMZ-White'"
+
+
+
+To change the size of the cursor:
+
+sudo su
+cd /usr/share/icons/jerry_bigcursor/source
+./resize.sh <size of cursor in pixels>
+
+Then log out and log back in.
+
+The current cursor was generated with
+
+./resize.sh 46
+
+
+
+Ok, if you want to change the color, this should do it:
+
+sudo su -
+
+cd /usr/share/icons/jerry_bigcursor/source/
+
+convert ./circle128.png.original -fuzz 50% -fill red -opaque yellow ./circle128.png.original
+
+convert ./alias128.png.original -fuzz 50% -fill red -opaque yellow ./alias128.png.original
+
+convert ./drag128.png.original -fuzz 50% -fill red -opaque yellow ./drag128.png.original
+
+convert ./hand128.png.original -fuzz 50% -fill red -opaque yellow ./hand128.png.original
+
+convert ./ibeam128.png.original -fuzz 50% -fill red -opaque yellow ./ibeam128.png.original
+
+./resize.sh 46
+
+
+
+Then log out and log back in.
+
